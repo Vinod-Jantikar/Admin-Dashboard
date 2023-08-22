@@ -6,7 +6,8 @@ const dotenv = require('dotenv')
 const helmet = require('helmet');
 const morgan = require('morgan');
 const generalRoutes = require('./routes/general.routes');
-const clientRoutes = require('./routes/client.routes')
+const clientRoutes = require('./routes/client.routes');
+const salesRoutes = require('./routes/sales.routes');
 
 
 // Data imports
@@ -15,7 +16,8 @@ const User = require('./models/user.model');
 const Products = require('./models/product.model');
 const ProductsStat = require('./models/productStats.model');
 const Transaction = require('./models/transaction.model')
-const {dataUser, dataProduct, dataProductStat, dataTransaction} = require("./data/index.js")
+const OverAllStat = require('./models/overAllStat.model');
+const {dataUser, dataProduct, dataProductStat, dataTransaction, dataOverallStat} = require("./data/index.js")
 
 // CONFIGURATION
 dotenv.config()
@@ -32,7 +34,7 @@ app.use(cors())
 app.use('/client', clientRoutes);
 app.use('/general', generalRoutes);
 // app.use('/management', managementRoutes);
-// app.use('/sales', salesRoutes);
+app.use('/sales', salesRoutes);
 
 // MONGOOSE SETUP 
 
@@ -47,4 +49,5 @@ mongoose.connect(process.env.MONGO_URL, {
     // Products.insertMany(dataProduct);
     // ProductsStat.insertMany(dataProductStat)
     // Transaction.insertMany(dataTransaction)
+    // OverAllStat.insertMany(dataOverallStat)
 }).catch((error) => console.log(`${error} did not connect`))

@@ -5,7 +5,9 @@ import { useSelector } from "react-redux";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Customers from "scenes/customers";
 import Dashboard from "scenes/dashboard";
+import Geography from "scenes/geography";
 import Layout from "scenes/layout";
+import OverView from "scenes/overView";
 import Products from "scenes/products";
 import Transactions from "scenes/transactions";
 import { themeSettings } from "theme";
@@ -26,6 +28,8 @@ function App() {
             <Route path="/products" element={<Products/>}/>
             <Route path="/customers" element={<Customers/>}/>
             <Route path="/transactions" element={<Transactions/>}/>
+            <Route path="/geography" element={<Geography />} />
+            <Route path="/overview" element={<OverView/>}/>
           </Route>
         </Routes>
       </ThemeProvider>
