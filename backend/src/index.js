@@ -18,7 +18,8 @@ const Products = require('./models/product.model');
 const ProductsStat = require('./models/productStats.model');
 const Transaction = require('./models/transaction.model')
 const OverAllStat = require('./models/overAllStat.model');
-const {dataUser, dataProduct, dataProductStat, dataTransaction, dataOverallStat} = require("./data/index.js")
+const AffiliateStat = require('./models/affiliate.model');
+const {dataUser, dataProduct, dataProductStat, dataTransaction, dataOverallStat, dataAffiliateStat} = require("./data/index.js")
 
 // CONFIGURATION
 dotenv.config()
@@ -51,4 +52,5 @@ mongoose.connect(process.env.MONGO_URL, {
     // ProductsStat.insertMany(dataProductStat)
     // Transaction.insertMany(dataTransaction)
     // OverAllStat.insertMany(dataOverallStat)
+    // AffiliateStat.insertMany(dataAffiliateStat)
 }).catch((error) => console.log(`${error} did not connect`))
