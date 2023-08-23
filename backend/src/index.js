@@ -8,6 +8,7 @@ const morgan = require('morgan');
 const generalRoutes = require('./routes/general.routes');
 const clientRoutes = require('./routes/client.routes');
 const salesRoutes = require('./routes/sales.routes');
+const managementRoutes = require('./routes/management.routes');
 
 
 // Data imports
@@ -33,7 +34,7 @@ app.use(cors())
 // ROUTES
 app.use('/client', clientRoutes);
 app.use('/general', generalRoutes);
-// app.use('/management', managementRoutes);
+app.use('/management', managementRoutes);
 app.use('/sales', salesRoutes);
 
 // MONGOOSE SETUP 
